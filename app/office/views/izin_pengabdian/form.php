@@ -27,7 +27,15 @@
                             <div class="col-md-10">
                                 <table class="table table-bordered" id="dynamic_field">
                                     <tr>
-                                        <td><input type="text" placeholder="Nama Anggota" class="form-control" name="SipAngNam[]" value=""></td>
+                                        <td><select name="SipAngNam[]" id="" class="form-control select2">
+                                                <?php
+                                                    foreach ($data as $nama):
+                                                ?>
+                                                        <option value="<?= $nama->nama ?>"> <?= $nama->nama ?> </option>
+                                                <?php
+                                                endforeach;
+                                                ?>
+                                            </select></td>
                                         <td><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>
                                     </tr>
                                 </table>

@@ -73,6 +73,8 @@ class Office extends RouterGroup
         //$this->addGet('/daftarakun', 'auth::daftar');
 
 
+        $this->add('/index-izinpengabdian','izin_pengabdian::index');
+
         $this->add('/pengajuan', 'pengajuan::pengajuan');
         $this->add('/profile', 'profile::profile');
         $this->add('/form-izinpengabdian', 'izin_pengabdian::form');

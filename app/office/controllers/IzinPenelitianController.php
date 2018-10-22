@@ -29,20 +29,24 @@ class IzinPenelitianController extends ControllerBase
 
             if(count($cek)==null){
                 $isi = [
-                    "izinpengabdian" => [
-                        "SipId"=> 1,
-                        "SipKetNam"=> $this->request->getPost('SipKetNam'),
-                        "SipAngNam"=> $this->request->getPost('SipAngNam'),
-                        "SipJud"=> $this->request->getPost('SipJud'),
-                        "SipTglKeg"=> $this->request->getPost('SipTglKeg'),
-                        "SipLok"=> $this->request->getPost('SipLok'),
-                        "SipInsTuj"=> $this->request->getPost('SipInsTuj'),
-                        "SipKabKot"=> $this->request->getPost('SipKabKot'),
-                        "SipTglSratKel" => "",
-                        "SipTglAcc"=> "",
+                    "izinpengabdian" => [],
+                    "izinpenelitian"=>[
+                        [
+                            "SitId"=> 1,
+                            "SitEml"=> $this->request->getPost('SitEml'),
+                            "SitKetNam"=> $this->request->getPost('SitKetNam'),
+                            "SitAngNam"=> $this->request->getPost('SitAngNam'),
+                            "SitJud"=> $this->request->getPost('SitJud'),
+                            "SitTglKeg"=> $this->request->getPost('SitTglKeg'),
+                            "SitLok"=> $this->request->getPost('SitLok'),
+                            "SitInsTuj"=> $this->request->getPost('SitInsTuj'),
+                            "SitKabKot"=> $this->request->getPost('SitKabKot'),
+                            "SitNom" => $this->request->getPost('SitNom'),
+                            "SitTglSratKel" => "",
+                            "SitTglAcc"=> "",
+                        ]
                     ],
-                    "izinpenelitian"=>[],
-                    "FGD"=>[],
+                    "fgd"=>[],
                     "surattugas"=>[],
                 ];
                 $pengajuan = new Pengajuansurat();
@@ -53,73 +57,70 @@ class IzinPenelitianController extends ControllerBase
                 if ($pengajuan) {
                     $this->flashSession->success('Berhasil Menyimpan Data');
 
-                    $this->response->redirect('office/form-izinpengabdian');
+                    $this->response->redirect('office/form-izinpenelitian');
                 } else {
 
                     $this->flashSession->error('Gagal Menyimpan Data');
 
-                    $this->response->redirect('office/form-izinpengabdian');
+                    $this->response->redirect('office/form-izinpenelitian');
 
                 }
 
 
             }
-            //id baru
-            $id_pengajuan= $cek[0]->id_pengaju;
+            else {
 
-            $isilama = json_decode($cek[0]->isi_surat);
-            $idakhir = end($isilama->izinpengabdian);
-            $idlama = $idakhir->SipId;
-            $idbaru= $idlama+1;
-            $isi = [
-                "SipId"=> $idbaru,
-                "SipKetNam"=> $this->request->getPost('SipKetNam'),
-                "SipAngNam"=> $this->request->getPost('SipAngNam'),
-                "SipJud"=> $this->request->getPost('SipJud'),
-                "SipTglKeg"=> $this->request->getPost('SipTglKeg'),
-                "SipLok"=> $this->request->getPost('SipLok'),
-                "SipInsTuj"=> $this->request->getPost('SipInsTuj'),
-                "SipKabKot"=> $this->request->getPost('SipKabKot'),
-                "SipTglSratKel" => "",
-                "SipTglAcc"=> "",
+                $cek1 = Pengajuansurat::find([
+                    'conditions' =>  'nip_pengaju like '.$this->session->get('user')->nip,
+                    'conditions' =>  'tahun like '.$tahunini['year'],
 
-            ];
-            //id baru
-            $isilama = json_decode($cek[0]->isi_surat);
-            $idakhir = end($isilama->izinpengabdian);
-            $idlama = $idakhir->SipId;
-            $idbaru= $idlama+1;
-            $isi = [
-                "SipId"=> $idbaru,
-                "SipKetNam"=> $this->request->getPost('SipKetNam'),
-                "SipAngNam"=> $this->request->getPost('SipAngNam'),
-                "SipJud"=> $this->request->getPost('SipJud'),
-                "SipTglKeg"=> $this->request->getPost('SipTglKeg'),
-                "SipLok"=> $this->request->getPost('SipLok'),
-                "SipInsTuj"=> $this->request->getPost('SipInsTuj'),
-                "SipKabKot"=> $this->request->getPost('SipKabKot'),
-                "SipTglSratKel" => "",
-                "SipTglAcc"=> "",
+                ]);
 
-            ];
-            array_push($isilama->izinpengabdian,$isi);
+                $id_pengajuan= $cek1[0]->id_pengaju;
 
 
-            $simpan = Pengajuansurat::findFirst($id_pengajuan);
-            $simpan->isi_surat=json_encode($isilama);
-            $simpan->save();
-            if ($simpan) {
-                $this->flashSession->success('Berhasil Menyimpan Data');
+                //id baru
 
-                $this->response->redirect('office/form-izinpengabdian');
-            } else {
 
-                $this->flashSession->error('Gagal Menyimpan Data');
+                $isilama = json_decode($cek1[0]->isi_surat);
+                $idakhir = end($isilama->izinpenelitian);
+                $idlama = $idakhir->SitId;
+                $idbaru = $idlama + 1;
+                $isi = [
+                    "SitId" => $idbaru,
+                    "SitEml" => $this->request->getPost('SitEml'),
+                    "SitKetNam" => $this->request->getPost('SitKetNam'),
+                    "SitAngNam" => $this->request->getPost('SitAngNam'),
+                    "SitJud" => $this->request->getPost('SitJud'),
+                    "SitTglKeg" => $this->request->getPost('SitTglKeg'),
+                    "SitLok" => $this->request->getPost('SitLok'),
+                    "SitInsTuj" => $this->request->getPost('SitInsTuj'),
+                    "SitKabKot" => $this->request->getPost('SitKabKot'),
+                    "SitNom" => $this->request->getPost('SitNom'),
+                    "SitTglSratKel" => "",
+                    "SitTglAcc" => "",
 
-                $this->response->redirect('office/form-izinpengabdian');
+                ];
+
+                array_push($isilama->izinpenelitian, $isi);
+
+
+                $simpan = Pengajuansurat::findFirst($id_pengajuan);
+                $simpan->isi_surat = json_encode($isilama);
+                $simpan->save();
+                if ($simpan) {
+                    $this->flashSession->success('Berhasil Menyimpan Data');
+
+                    $this->response->redirect('office/form-izinpenelitian');
+                } else {
+
+                    $this->flashSession->error('Gagal Menyimpan Data');
+
+                    $this->response->redirect('office/form-izinpenelitian');
+
+                }
 
             }
-
         }
     }
 }

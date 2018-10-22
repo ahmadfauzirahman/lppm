@@ -17,30 +17,31 @@
 
 
     <?php if ($this->session->get('hak_akses') == 'staff'): ?>
-    <li class="text-muted menu-title" id="page-title-tour">Data Master</li>
-    <li>
-        <a href="<?= $this->url->get('') ?>" class="waves-effect"><i class="mdi mdi-account"></i>
+        <li class="text-muted menu-title" id="page-title-tour">Data Master</li>
+        <li>
+            <a href="<?= $this->url->get('') ?>" class="waves-effect"><i class="mdi mdi-account"></i>
                 <span>Data Pengguna</span>
             </a>
-    </li>
-    <li>
-        <a href="<?= $this->url->get('') ?>" class="waves-effect"><i class=" mdi mdi-account-box  "></i>
+        </li>
+        <li>
+            <a href="<?= $this->url->get('') ?>" class="waves-effect"><i class=" mdi mdi-account-box  "></i>
                 <span>Data Dosen</span> </a>
-    </li>
-    <li>
-        <a href="<?= $this->url->get('') ?>" class="waves-effect"><i class=" mdi mdi-view-list"></i>
+        </li>
+        <li>
+            <a href="<?= $this->url->get('') ?>" class="waves-effect"><i class=" mdi mdi-view-list"></i>
                 <span>Data Jenis Surat</span> </a>
-    </li>
+        </li>
 
-    <li>
-        <a href="<?= $this->url->get('office/pengajuan') ?>" class="waves-effect"><i class="mdi mdi-library-books"></i>
+        <li>
+            <a href="<?= $this->url->get('office/pengajuan') ?>" class="waves-effect"><i
+                        class="mdi mdi-library-books"></i>
                 <span>Permohonan Pembuatan Surat</span>
-        </a>
-    </li>
-    
+            </a>
+        </li>
+
 
     <?php elseif ($this->session->get('hak_akses') == 'dosen' || $this->session->get('hak_akses') == 'pustakawan'): ?>
-    <li class="text-muted menu-title" id="page-title-tour">Panel Dosen</li>
+        <li class="text-muted menu-title" id="page-title-tour">Panel Dosen</li>
 
         <li class="has_sub">
             <a class="waves-effect ">
@@ -51,7 +52,7 @@
             <ul class="list-unstyled" style="display: none;">
                 <li>
                     <a href="<?= $this->url->get('office/form-izinpenelitian') ?>">
-                     </i><span>Izin Penelitian</span></a>
+                        </i><span>Izin Penelitian</span></a>
                 </li>
                 <li>
                     <a href="<?= $this->url->get('office/form-izinpengabdian') ?>">
@@ -59,9 +60,11 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?= $this->url->get('office/form-tugasperjalanan')?>">
-                        </i><span>Tugas Perjalanan</span></a>
+                    <a href="<?= $this->url->get('office/form-tugasperjalanan') ?>">
+                        </i><span>Tugas Perjalanan</span>
+                    </a>
                 </li>
+
                 <li>
                     <a href="<?= $this->url->get('office/form-fgd') ?>">
                         </i><span>FGD</span></a>
@@ -70,33 +73,59 @@
             </ul>
         </li>
 
-			<li>
-			<a href="<?= $this->url->get('') ?>" class="waves-effect"><i class="fa fa-check-square-o"></i>
-					<span>Surat Selesai</span></a>
-			</li>
-	</li>
-                            
+        <li class="has_sub">
+            <a class="waves-effect ">
+                <i class="mdi mdi-folder-open"></i>
+                <span>Lihat Pengajuan Surat</span>
+                <span class="menu-arrow"></span>
+            </a>
+            <ul class="list-unstyled" style="display: none;">
+                <li>
+                    <a href="<?= $this->url->get('office/form-izinpenelitian') ?>">
+                        </i><span>Izin Penelitian</span></a>
+                </li>
+                <li>
+                    <a href="<?= $this->url->get('office/index-izinpengabdian') ?>">
+                        </i><span>Izin Pengabdian</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="<?= $this->url->get('office/form-fgd') ?>">
+                        </i><span>FGD</span></a>
+                </li>
+
+            </ul>
+        </li>
+
+
+        <li>
+            <a href="<?= $this->url->get('') ?>" class="waves-effect"><i class="fa fa-check-square-o"></i>
+                <span>Surat Selesai</span></a>
+        </li>
+
+
 
     <?php elseif ($this->session->get('hak_akses') == 'kepala'): ?>
-    <li class="text-muted menu-title" id="page-title-tour">Pannel Kasubbag</li>
-    <li>
-        <a href="<?= $this->url->get('') ?>" class="waves-effect"><i class="glyphicon glyphicon-eye-open"></i>
+        <li class="text-muted menu-title" id="page-title-tour">Pannel Kasubbag</li>
+        <li>
+            <a href="<?= $this->url->get('') ?>" class="waves-effect"><i class="glyphicon glyphicon-eye-open"></i>
                 <span>Lihat dan ACC</span>
             </a>
-    </li>
+        </li>
 
     <?php elseif ($this->session->get('hak_akses') == 'staff' || $this->session->get('hak_akses') == 'kepala'): ?>
-    <li class="text-muted menu-title" id="page-title-tour">Laporan</li>
-    <li>
-        <a href="<?= $this->url->get('') ?>" class="waves-effect"><i class="mdi mdi-assignment"></i>
+        <li class="text-muted menu-title" id="page-title-tour">Laporan</li>
+        <li>
+            <a href="<?= $this->url->get('') ?>" class="waves-effect"><i class="mdi mdi-assignment"></i>
                 <span>Laporan Penelitian Dosen</span>
             </a>
-    </li>
-    <li>
-        <a href="<?= $this->url->get('') ?>" class="waves-effect"><i class="glyphicon glyphicon-stats"></i>
+        </li>
+        <li>
+            <a href="<?= $this->url->get('') ?>" class="waves-effect"><i class="glyphicon glyphicon-stats"></i>
                 <span>Grafik Penelitian Dosen </span>
             </a>
-    </li>
+        </li>
 
 
     <?php endif; ?>

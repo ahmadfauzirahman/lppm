@@ -19,21 +19,21 @@
                         <div class="form-group row">
                             <label class="col-2 col-form-label">Email</label>
                             <div class="col-md-10">
-                                <input type="text" placeholder="Nama Dosen" class="form-control" name="SipKetNam" value="<?= $this->session->get('user')->email?>" readonly>
+                                <input type="text" placeholder="Nama Dosen" class="form-control" name="SitEml" value="<?= $this->session->get('user')->email?>" readonly>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-2 col-form-label">Nama Ketua Tim Penelitian</label>
                             <div class="col-md-10">
-                                <input type="text" placeholder="Nama Dosen" class="form-control" name="SipKetNam" value="<?= $this->session->get('user')->nama?>" readonly>
+                                <input type="text" placeholder="Nama Dosen" class="form-control" name="SitKetNam" value="<?= $this->session->get('user')->nama?>" readonly>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-md-2 control-label" >Nama Anggota Penga</label>
+                            <label class="col-md-2 control-label" >Nama Anggota Penelitian</label>
                             <div class="col-md-10">
                                 <table class="table table-bordered" id="dynamic_field">
                                     <tr>
-                                        <td><input type="text" placeholder="Nama Anggota" class="form-control" name="SipAngNam[]" value=""></td>
+                                        <td><input type="text" placeholder="Nama Anggota" class="form-control" name="SitAngNam[]" value=""></td>
                                         <td><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>
                                     </tr>
                                 </table>
@@ -41,16 +41,16 @@
 
                         </div>
                         <div class="form-group row">
-                            <label class="col-md-2 control-label" >Judul Kegiatan Pengabdian</label>
+                            <label class="col-md-2 control-label" >Judul Kegiatan Penelitian</label>
                             <div class="col-md-10">
-                                <input type="text" placeholder="Sesuai SK Rektor" class="form-control" name="SipJud" value="">
+                                <input type="text" placeholder="Sesuai SK Rektor" class="form-control" name="SitJud" value="">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-md-2 control-label" >Tanggal Kegiatan Pengabdian</label>
+                            <label class="col-md-2 control-label" >Tanggal Kegiatan Penelitian</label>
                             <div class="col-md-10">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="mm/dd/yyyy" name="SipTglKeg"id="datepicker-autoclose">
+                                    <input type="text" class="form-control" placeholder="mm/dd/yyyy" name="SitTglKeg"id="datepicker-autoclose">
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="ti-calendar"></i></span>
                                     </div>
@@ -59,22 +59,28 @@
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-md-2 control-label">Lokasi Kegiatan Pengabdian</label>
+                            <label class="col-md-2 control-label">Lokasi Kegiatan Penelitian</label>
                             <div class="col-md-10">
-                                <input type="text" placeholder="" class="form-control" name="SipLok" value="">
+                                <input type="text" placeholder="" class="form-control" name="SitLok" value="">
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label class="col-md-2 control-label" >Instansi/Unit surat yg dituju</label>
                             <div class="col-md-10">
-                                <input type="text" placeholder="Kepala Sekolah MTsN/ Kepala Desa Belutu" class="form-control" name="SipInsTuj" value="">
+                                <input type="text" placeholder="Kepala Sekolah MTsN/ Kepala Desa Belutu" class="form-control" name="SitInsTuj" value="">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-md-2 control-label">Kabupaten/Kota</label>
                             <div class="col-md-10">
-                                <input type="text" placeholder="Kota Pekanbaru/Kabupaten Kampar" class="form-control" name="SipKabKot" value="">
+                                <input type="text" placeholder="Kota Pekanbaru/Kabupaten Kampar" class="form-control" name="SitKabKot" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-2 control-label">Nomor WhatsApp</label>
+                            <div class="col-md-10">
+                                <input type="text" placeholder="Nomor WhatsApp" class="form-control" name="SitNom" value="">
                             </div>
                         </div>
 

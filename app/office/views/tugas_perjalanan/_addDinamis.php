@@ -15,8 +15,6 @@ $(document).ready(function(){
         $('#dynamic_field3').append('' +
             '<tr id="row'+i+'">' +
             '<td><input type="text" placeholder="Nama Anggota" class="form-control" name="SipAngNam[]" value="">'+
-            '<input type="text" placeholder="NIP/NIK Anggota" class="form-control" name="SipAngNam[]" value="">'+
-            '<input type="text" placeholder="Pangkat/Golongan/Jabatan Anggota" class="form-control" name="SipAngNam[]" value=""></td>'+
             '<td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td>' +
             '</tr>');
     });

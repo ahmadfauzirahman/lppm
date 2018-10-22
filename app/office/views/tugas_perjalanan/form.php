@@ -19,82 +19,81 @@
                             <div class="form-group row">
                                 <label class="col-2 col-form-label">Nama Ketua Tim Peneliti/Pengabdi</label>
                                 <div class="col-md-10">
-                                    <input type="text" placeholder="Nama Dosen" class="form-control" name="SipKetNam" value="<?= $this->session->get('user')->nama?>" readonly>
+                                    <input type="text" placeholder="Nama Dosen" class="form-control" name="StpKetNam"
+                                           value="<?= $this->session->get('user')->nama ?>" readonly>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-2 col-form-label">NIP/NIP (Ketua)</label>
+                                <label class="col-2 col-form-label">NIP/NIK (Ketua)</label>
                                 <div class="col-md-10">
-                                    <input type="text" placeholder="Nama Dosen" class="form-control" name="SipKetNam" value="<?= $this->session->get('user')->nip?>" readonly>
+                                    <input type="text" placeholder="Nama Dosen" class="form-control" name="StpNipNik"
+                                           value="<?= $this->session->get('user')->nip ?>" readonly>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-2 col-form-label">Pangkat/Golongan/Jabatan (Ketua)</label>
                                 <div class="col-md-10">
-                                    <input type="text" placeholder="Pangkat/Golongan/Jabatan (Ketua)" class="form-control" name="SipKetNam">
+                                    <input type="text" placeholder="Pangkat/Golongan/Jabatan (Ketua)"
+                                           class="form-control" name="StpPanGol">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-md-2 control-label" >Nama Anggota Pengabdi</label>
+                                <label class="col-md-2 control-label">Nama Anggota Peneliti/Pengabdi</label>
                                 <div class="col-md-10">
-                                    <table class="table table-bordered" id="dynamic_field3">
+                                    <table class="table table-bordered" id="dynamic_field">
                                         <tr>
-                                            <td><input type="text" placeholder="Nama Anggota" class="form-control" name="SipAngNam[]" value="">
-                                                <input type="text" placeholder="NIP/NIK Anggota" class="form-control" name="SipAngNam[]" value="">
-                                                <input type="text" placeholder="Pangkat/Golongan/Jabatan Anggota" class="form-control" name="SipAngNam[]" value="">
+                                            <td><input type="text" placeholder="Nama Anggota" class="form-control"
+                                                       name="StpAngNam[]" value="">
                                             </td>
-                                            <td><button type="button" name="add3" id="add3" class="btn btn-success">Add More</button></td>
+                                            <td>
+                                                <button type="button" name="add" id="add" class="btn btn-success">Add
+                                                    More
+                                                </button>
+                                            </td>
                                         </tr>
                                     </table>
                                 </div>
 
                             </div>
                             <div class="form-group row">
-                                <label class="col-md-2 control-label" >Judul Kegiatan Penelitian/Pengabdian Sesuai SK</label>
+                                <label class="col-md-2 control-label">Judul Kegiatan Penelitian/Pengabdian Sesuai
+                                    SK</label>
                                 <div class="col-md-10">
-                                    <input type="text" placeholder="Sesuai SK Rektor" class="form-control" name="SipJud" value="">
+                                    <input type="text" placeholder="Sesuai SK Rektor" class="form-control" name="StpJud"
+                                           value="">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-md-2 control-label" >Kluster Kegiatan Penelitian/Pengabdian Sesuai SK</label>
+                                <label class="col-md-2 control-label">Kluster Kegiatan Penelitian/Pengabdian Sesuai
+                                    SK</label>
                                 <div class="col-md-10">
-                                    <input type="text" placeholder="Sesuai SK Rektor" class="form-control" name="SipJud" value="">
+                                    <input type="text" placeholder="Sesuai SK Rektor" class="form-control" name="StpKlu"
+                                           value="">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-md-2 control-label" >Tanggal Berangkat</label>
+                                <label class="col-md-2 control-label">Tanggal Berangkat</label>
                                 <div class="col-md-4">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="mm/dd/yyyy" name="SipTglKeg"id="datepicker-autoclose">
-                                        <div class="input-group-append">
-                                            <span class="input-group-text"><i class="ti-calendar"></i></span>
-                                        </div>
+                                        <input class="form-control input-daterange-datepicker" type="text"
+                                               name="daterange" value="01/01/2015 - 01/31/2015">
+
                                     </div><!-- input-group -->
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label class="col-md-2 control-label" >Tanggal Pulang</label>
-                                <div class="col-md-4">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="mm/dd/yyyy" name="SipTglKeg"id="datepicker-autoclose">
-                                        <div class="input-group-append">
-                                            <span class="input-group-text"><i class="ti-calendar"></i></span>
-                                        </div>
-                                    </div><!-- input-group -->
-                                </div>
-                            </div>
+
 
                             <div class="form-group row">
                                 <label class="col-md-2 control-label">Lokasi Kegiatan Penelitian/Pengabdian</label>
                                 <div class="col-md-10">
-                                    <input type="text" placeholder="" class="form-control" name="SipLok" value="">
+                                    <input type="text" placeholder="" class="form-control" name="StpLok" value="">
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-md-2 control-label" >Jenis Kegiatan</label>
+                                <label class="col-md-2 control-label">Jenis Kegiatan</label>
                                 <div class="col-md-10">
-                                    <select class="form-control">
+                                    <select class="form-control" name="StpJen">
                                         <option value="penelitian">Penelitian</option>
                                         <option value="pengabdian">Pengabdian</option>
                                     </select>
@@ -102,9 +101,10 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-md-2 control-label" >Nomor HP</label>
+                                <label class="col-md-2 control-label">Nomor HP</label>
                                 <div class="col-md-10">
-                                    <input type="number" placeholder="Nomor HP" class="form-control" name="SipInsTuj" value="">
+                                    <input type="number" placeholder="Nomor HP" class="form-control" name="StpNom"
+                                           value="">
                                 </div>
                             </div>
 

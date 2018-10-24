@@ -16,9 +16,9 @@ return new \Phalcon\Config([
         'adapter' => 'Mysql',
         'host' => 'localhost',
         'username' => 'root',
-        'password' => 'enteraja',
-        'dbnameOffice' => '',
-        'dbnameLppm' => '',
+        'password' => '',
+        'dbnameOffice' => 'lppm_office',
+        'dbnameLppm' => 'lppm',
         'dbnameMonitoring' => '',
         'charset' => 'utf8',
     ],
@@ -39,8 +39,9 @@ return new \Phalcon\Config([
         'monitoringModelsDir' => MONITORING_PATH . '/models/',
         'monitoringViewsDir' => MONITORING_PATH . '/views/',
         'monitoringControllersDir' => MONITORING_PATH . '/controllers/',
+
         // umum
-        'formsDir' => APP_PATH . '/form/',
+        'formsDir' => APP_PATH . '/forms/',
         'migrationsDir' => APP_PATH . '/migrations/',
         'pluginsDir' => APP_PATH . '/plugins/',
         'libraryDir' => APP_PATH . '/library/',
@@ -50,8 +51,7 @@ return new \Phalcon\Config([
         // of the webpspace.  This will break if the public/index.php entry point is moved or
         // possibly if the web server rewrite rules are changed. This can also be set to a static path.
         'baseUri' => preg_replace('/public([\/\\\\])index.php$/', '', $_SERVER["PHP_SELF"]),
-
-    ],
+],
     'smtp' => [
         'host' => 'smtp.gmail.com',
         'port' => 587,
@@ -65,10 +65,6 @@ return new \Phalcon\Config([
         ],
 
     ],
-    'jadwal' => [
-        'presentfutureseminar' => "date between '" . date('Y-m-d') . "' and '3000-12-29'",
-        'presentfuturebimbingan' => "tanggal between '" . date('Y-m-d') . "' and '3000-12-29'",
-    ],
-    'emailUri' => preg_replace('/public([\/\\\\])index.php$/', '', $_SERVER["PHP_SELF"]),
-    'web' => 'https://apps-tif.uin-suska.ac.id/ta/',
+
+
 ]);

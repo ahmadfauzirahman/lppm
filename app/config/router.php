@@ -17,6 +17,15 @@ class Lppm extends RouterGroup
         $this->setPrefix('');
         $this->add('/', 'index::index');
 
+
+        //$this->addGet('/keluar', 'auth::logout');
+        $this->add('/daftar', 'auth::daftar');
+
+
+        $this->add('/lupa', 'auth::lupa');
+
+        $this->add('/auth/loginproses', 'auth::loginproses');
+        $this->add('/konfirmasi/{id}', 'auth::konfirmasi');
     }
 
 }
@@ -24,7 +33,7 @@ class Lppm extends RouterGroup
 
 class Office extends RouterGroup
 {
-    public function initialize($di)
+    public function initialize()
     {
         // Default paths
         $this->setPaths(
@@ -58,6 +67,25 @@ class Office extends RouterGroup
                 'params' => 3,
             ]
         );
+
+        $this->addGet('/masuk', 'auth::login');
+        $this->addGet('/keluar', 'auth::logout');
+        //$this->addGet('/daftarakun', 'auth::daftar');
+
+
+        $this->add('/index-izinpengabdian','izin_pengabdian::index');
+
+        $this->add('/pengajuan', 'pengajuan::pengajuan');
+        $this->add('/profile', 'profile::profile');
+        $this->add('/form-izinpengabdian', 'izin_pengabdian::form');
+        $this->add('/form-tugasperjalanan', 'tugas_perjalanan::form');
+
+        $this->add('/form-izinpenelitian', 'izin_penelitian::form');
+        $this->add('/form-fgd', 'fgd::form');
+
+
+
+       
     }
 }
 
@@ -96,6 +124,10 @@ class Monitoring extends RouterGroup
                 'params' => 3,
             ]
         );
+
+        $this->addGet('/masuk', 'auth::login');
+        $this->addGet('/keluar', 'auth::logout');
+
     }
 }
 
